@@ -11,8 +11,7 @@ echo "Creating instance for:$name with instance type: $instance_type"
 
 instance_id=$(aws ec2 run-instances --image-id ami-0220d79f3f480ecf5  --instance-type $instance_type --security-group-ids sg-088bbd993cbc52b59 --subnet-id subnet-0ea9a2005fdcc6695 --query 'Instances[0].InstanceId' --output text)
 
-aws ec2 create-tags --resources $instance_id --tags key=Name,Value=$name
-
+aws ec2 create-tags --resources $instance_id --tags Key=Name,Value=$name
 
 if [ $name == "frontend" ]
 then 
