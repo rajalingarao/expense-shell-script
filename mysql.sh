@@ -10,8 +10,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "Please enter DB password"
-read -s mysql_root_password
+# echo "Please enter DB password"
+# read -s mysql_root_password
+mysql_root_password = ExpenseApp@1
 
 if [ $USERID -ne 0 ]
 then
