@@ -10,8 +10,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "Script started executing at: $TIMESTAMP"
-
 if [ $USERID -ne 0 ]
 then
    echo -e "$R Please run this script with root access $N"
@@ -41,7 +39,6 @@ VALIDATE $? "Starting Nginx server"
 
 rm -rf /usr/share/nginx/html/* &>>$LOGFILE
 VALIDATE $? "Removing existing content"
-
 
 mkdir -p /app &>>$LOGFILE
 VALIDATE $? "Creating app directory"

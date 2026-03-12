@@ -81,8 +81,8 @@ VALIDATE $? "Installing Mysql Client"
 # mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 # VALIDATE $? "Mysql - Loading database schema"
 
-mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e "use transactions; show tables like 'transactions'" | grep transactions &>>$LOGFILE
-if [ $? -ne 0 ]
+mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+if [ $? -ne 0 ] 
 then
   mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
   VALIDATE $? "Mysql - Loading database schema"
