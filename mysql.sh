@@ -13,7 +13,6 @@ N="\e[0m"
 echo "Please enter DB password"
 read -s mysql_root_password
 
-echo "Script started executing at: $TIMESTAMP"
 if [ $USERID -ne 0 ]
 then
    echo "Please run this script with root access"
@@ -45,7 +44,7 @@ VALIDATE $? "Starting the MySQL server"
 # VALIDATE $? "Setting up Root Password"
 
 mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
-if[ $? -ne 0 ] 
+if [ $? -ne 0 ] 
 then
    mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
    VALIDATE $? "MySQL Root password setup done"
