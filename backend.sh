@@ -81,11 +81,11 @@ VALIDATE $? "Installing Mysql Client"
 # mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 # VALIDATE $? "Mysql - Loading database schema"
 
-mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'use transactions;' &>>$LOGFILE
 if [ $? -ne 0 ] 
 then
   mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
-  VALIDATE $? "Mysql - Loading database schema"
+  VALIDATE $? "mysql schema loading..."
 else
   echo -e "Schema already loaded... $Y SKIPPING $N" 
 fi
