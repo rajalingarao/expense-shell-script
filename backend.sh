@@ -87,7 +87,7 @@ then
   mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
   VALIDATE $? "Mysql - Loading database schema"
 else
-  echo "Schema already loaded... SKIPPING" &>>$LOGFILE
+  echo -e "Schema already loaded... $Y SKIPPING $N" 
 fi
 
 systemctl restart backend &>>$LOGFILE
