@@ -78,7 +78,7 @@ VALIDATE $? "Enabling backend"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing Mysql Client"
 
-mysql -h db.lingaiah.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "Mysql - Loading database schema"
 
 systemctl restart backend &>>$LOGFILE
