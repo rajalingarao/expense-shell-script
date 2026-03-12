@@ -10,9 +10,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-# echo "Please enter DB password"
-# read -s mysql_root_password
-mysql_root_password=ExpenseApp@1
+echo "Please enter DB password"
+read -s mysql_root_password
+#mysql_root_password=ExpenseApp@1
 
 if [ $USERID -ne 0 ]
 then
@@ -43,9 +43,7 @@ VALIDATE $? "Starting the MySQL server"
 
 # mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
 # VALIDATE $? "Setting up Root Password"
-#mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 
-#mysql -e 'show databases;' &>>$LOGFILE
 mysql -h db.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 if [ $? -ne 0 ] 
 then
