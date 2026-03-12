@@ -16,10 +16,10 @@ read -s mysql_root_password
 
 if [ $USERID -ne 0 ]
 then
-   echo "Please run this script with root access"
+   echo -e "$R Please run this script with root access $N"
    exit 1
 else
-   echo "You are super user."
+   echo -e " $G You are super user. $N"
 fi
 
 VALIDATE(){

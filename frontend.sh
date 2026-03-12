@@ -11,6 +11,15 @@ Y="\e[33m"
 N="\e[0m"
 
 echo "Script started executing at: $TIMESTAMP"
+
+if [ $USERID -ne 0 ]
+then
+   echo -e "$R Please run this script with root access $N"
+   exit 1
+else
+   echo -e " $G You are super user. $N"
+fi
+
 VALIDATE(){
 if [ $1 -ne 0 ]
 then
@@ -20,13 +29,6 @@ else
    echo -e "$2... $G SUCCESS $N"
 fi
 }
-if [ $USERID -ne 0 ]
-then
-   echo "Please run this script with root access"
-   exit 1
-else
-   echo "You are super user."
-fi
 
 dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "Installing Nginx Server"
